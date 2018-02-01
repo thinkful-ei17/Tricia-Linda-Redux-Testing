@@ -43,6 +43,7 @@ export default (state = initialState, action) => {
         } else {
             feedback = 'You got it!';
         }
+        console.log('what is this test', state.guesses);
 
         return Object.assign({}, state, {
             feedback,

@@ -1,6 +1,6 @@
 import { generateAuralUpdate, restartGame, makeGuess } from './actions';
 import { GENERATE_AURAL_UPDATE, RESTART_GAME, MAKE_GUESS } from './actions';
-import { getUnpackedSettings } from 'http2';
+
 
 
 describe('generateAuralUpdate', () => {
