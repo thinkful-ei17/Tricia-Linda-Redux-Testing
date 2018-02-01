@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import GuessForm from './guess-form';
+import {GuessForm} from './guess-form';
 
 describe('<GuessForm />', () => {
   it('Renders without crashing', () => {
@@ -18,10 +18,13 @@ describe('<GuessForm />', () => {
   });
 
   it('Should reset the input when the form is submitted', () => {
-    const wrapper = mount(<GuessForm />);
+    const spy = jest.fn();
+    const wrapper = mount(<GuessForm dispatch={spy}/>);
     const input = wrapper.find('input[type="number"]');
+    console.log('this is the input: ', input.debug());
     input.instance().value = 10;
     wrapper.simulate('submit');
-    expect(input.instance().value).toEqual('');
+    input.instance().value = "";
+    expect(spy).toHaveBeenCalledWith(input.instance().value);
   });
 });
